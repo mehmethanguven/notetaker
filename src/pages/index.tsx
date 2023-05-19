@@ -6,6 +6,8 @@ import { Header } from "~/components/Header";
 import { NoteCard } from "~/components/NoteCard";
 import { NoteEditor } from "~/components/NoteEditor";
 import { api, type RouterOutputs } from "~/utils/api";
+import { BsTrash } from "react-icons/bs";
+import clsx from "clsx";
 
 const Home: NextPage = () => {
   return (
@@ -47,9 +49,11 @@ const Content: React.FC = () => {
     },
   });
 
-  const handleOnSave = () => {
-    console.log("save");
-  };
+  const deleteTopic = api.topic.delete.useMutation({
+    onSuccess: () => {
+      void refetchTopics();
+    },
+  });
 
   const { data: notes, refetch: refetchNotes } = api.note.getAll.useQuery(
     {
@@ -75,18 +79,30 @@ const Content: React.FC = () => {
   return (
     <div className="mx-5 mt-5 grid grid-cols-4 gap-2">
       <div className="px-2">
-        <ul className="menu rounded-box w-56 bg-base-100 p-2">
+        <ul className="rounded-box flex w-56 flex-col gap-2">
           {topics?.map((topic) => (
-            <li key={topic.id}>
-              <a
-                href="#"
-                onClick={(evt) => {
-                  evt.preventDefault();
-                  setSelectedTopic(topic);
-                }}
-              >
-                {topic.title}
-              </a>
+            <li key={topic.id} className="">
+              <div className="flex justify-between">
+                <a
+                  className={clsx(
+                    "w-44 rounded-lg p-2 hover:bg-blue-100",
+                    topic.id === selectedTopic?.id ? "bg-blue-300" : ""
+                  )}
+                  href="#"
+                  onClick={(evt) => {
+                    evt.preventDefault();
+                    setSelectedTopic(topic);
+                  }}
+                >
+                  {topic.title}
+                </a>{" "}
+                <button
+                  onClick={() => deleteTopic.mutate({ id: topic.id })}
+                  className="btn-sm btn-circle btn bg-red-800"
+                >
+                  <BsTrash size={20} />
+                </button>
+              </div>
             </li>
           ))}
         </ul>

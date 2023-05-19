@@ -22,6 +22,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.56.0
   '@uiw/react-codemirror': ^4.20.2
   autoprefixer: ^10.4.14
+  clsx: ^1.2.1
   codemirror: ^6.0.1
   daisyui: ^2.51.6
   eslint: ^8.36.0
@@ -34,6 +35,7 @@ specifiers:
   prisma: ^4.11.0
   react: 18.2.0
   react-dom: 18.2.0
+  react-icons: ^4.8.0
   react-markdown: ^8.0.7
   superjson: 1.12.2
   tailwindcss: ^3.3.0
@@ -53,11 +55,13 @@ dependencies:
   '@trpc/react-query': 10.26.0_umfrugaz453xuwiifkhz4usemu
   '@trpc/server': 10.26.0
   '@uiw/react-codemirror': 4.20.2_hjjckxuhmz7jccrorpuvezwpr4
+  clsx: 1.2.1
   codemirror: 6.0.1
   next: 13.4.3_biqbaboplfbrettd7655fr4n2y
   next-auth: 4.22.1_o6dt4yn4syzkhlixdxt4y57rzi
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-icons: 4.8.0_react@18.2.0
   react-markdown: 8.0.7_s3k22s5ab4eu26xuel7hiaraxy
   superjson: 1.12.2
   zod: 3.21.4
@@ -1332,6 +1336,11 @@ packages:
 
   /client-only/0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
+    dev: false
+
+  /clsx/1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
     dev: false
 
   /codemirror/6.0.1:
@@ -3445,6 +3454,14 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-icons/4.8.0_react@18.2.0:
+    resolution: {integrity: sha512-N6+kOLcihDiAnj5Czu637waJqSnwlMNROzVZMhfX68V/9bu9qHaMIJC4UdozWoOk57gahFCNHwVvWzm0MTzRjg==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-is/16.13.1:
